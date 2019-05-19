@@ -64,7 +64,7 @@ the member name. */
 
 SELECT DISTINCT concat(mb.firstname, ' ', mb.surname) as membername, fc.name  
 FROM `Bookings` AS bk 
-INNER JOIN `Facilities` as fc 
+INNER JOIN `Facilities` AS fc 
 ON (bk.facid = fc.facid AND fc.facid in (0, 1)) 
 INNER JOIN `Members` AS mb 
 ON mb.memid = bk.memid 
@@ -79,12 +79,12 @@ the guest user's ID is always 0. Include in your output the name of the
 facility, the name of the member formatted as a single column, and the cost.
 Order by descending cost, and do not use any subqueries. */
 
-SELECT fc.name, concat(mb.firstname, ' ', mb.surname) as membername, 
+SELECT fc.name, concat(mb.firstname, ' ', mb.surname) AS membername, 
 CASE WHEN mb.memid = 0 THEN fc.guestcost*bk.slots 
-ELSE fc.membercost*bk.slots END as cost
+ELSE fc.membercost*bk.slots END AS cost
 
 FROM `Bookings` AS bk 
-INNER JOIN `Facilities` as fc 
+INNER JOIN `Facilities` AS fc 
 ON (bk.facid = fc.facid) 
 INNER JOIN `Members` AS mb 
 ON mb.memid = bk.memid 
@@ -97,9 +97,9 @@ ORDER BY cost DESC
 
 
 
-SELECT f.name, concat(m.firstname, ' ', m.surname) as membername,
+SELECT f.name, concat(m.firstname, ' ', m.surname) AS membername,
 	CASE WHEN m.memid = 0 THEN f.guestcost*b.slots 
-ELSE f.membercost*b.slots END as cost
+ELSE f.membercost*b.slots END AS cost
 
 
 FROM 
@@ -133,8 +133,8 @@ SELECT name AS facility,
        CASE WHEN memid = 0 THEN guestcost*slots 
        ELSE membercost*slots END AS cost 
 
-FROM Bookings as b
-INNER JOIN Facilities as f 
+FROM Bookings AS b
+INNER JOIN Facilities AS f 
 ON b.facid = f.facid
 ) sub
 
