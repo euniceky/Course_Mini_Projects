@@ -1,1 +1,1 @@
-A collection of mini projects will be put in this repository.
+A collection of mini projects is in this repository.
