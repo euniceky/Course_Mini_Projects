@@ -1,1 +1,1 @@
-# Course_Mini_Projects
+A collection of mini projects
